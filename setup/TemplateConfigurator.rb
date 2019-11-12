@@ -43,11 +43,15 @@ module Pod
       }
       print_info.call
 
-      answer = possible_answers[0]
+      answer = ""
 
       loop do
         @message_bank.show_prompt
-        # answer = gets.downcase.chomp
+        answer = gets.downcase.chomp
+
+        # possible_answers.map { |a| a.downcase }.include? answer
+
+        print possible_answers[0].downcase
 
         answer = "yes" if answer == "y"
         answer = "no" if answer == "n"
@@ -56,16 +60,15 @@ module Pod
         if answer == ""
           answer = possible_answers[0].downcase
           print answer.yellow
-          print '666666666'
         end
 
-        break if possible_answers.map { |a| a.downcase }.include? answer
+        break if true
 
         print "\nPossible answers are ["
         print_info.call
       end
 
-      answer 
+      answer
     end
 
     def run
