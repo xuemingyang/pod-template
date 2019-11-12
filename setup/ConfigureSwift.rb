@@ -12,9 +12,9 @@ module Pod
     end
 
     def perform
-      keep_demo = "Yes"
+      keep_demo = configurator.ask_with_answers("Would you like to include a demo application with your library", ["Yes"]).to_sym
 
-      framework = "None"
+      framework = configurator.ask_with_answers("Which testing frameworks will you use", ["None"]).to_sym
       case framework
         when :quick
           configurator.add_pod_to_podfile "Quick', '~> 1.2.0"
@@ -25,7 +25,7 @@ module Pod
           configurator.set_test_framework "xctest", "swift", "swift"
       end
 
-      snapshots = "Yes"
+      snapshots = configurator.ask_with_answers("Would you like to do view based testing", ["Yes"]).to_sym
       case snapshots
         when :yes
           configurator.add_pod_to_podfile "FBSnapshotTestCase' , '~> 2.1.4"
