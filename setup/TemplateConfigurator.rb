@@ -47,11 +47,9 @@ module Pod
 
       loop do
         @message_bank.show_prompt
-        answer = gets.downcase.chomp
+        answer = possible_answers[0].downcase
 
         # possible_answers.map { |a| a.downcase }.include? answer
-
-        print possible_answers[0].downcase
 
         answer = "yes" if answer == "y"
         answer = "no" if answer == "n"
