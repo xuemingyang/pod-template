@@ -54,7 +54,7 @@ module Pod
 
         # default to first answer
         if answer == ""
-          answer = possible_answers[0].downcase
+          answer = possible_answers[0]
           print answer.yellow
         end
 
