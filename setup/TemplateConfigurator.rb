@@ -72,7 +72,11 @@ module Pod
 
       platform = self.ask_with_answers("What platform do you want to use?", ["iOS", "macOS"]).to_sym
 
-      print platform
+      
+      print "
+      \n
+      #{platform}
+      \nYou need to provide an answer."
 
       case platform
         when :macos
