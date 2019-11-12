@@ -43,28 +43,29 @@ module Pod
       }
       print_info.call
 
-      answer = ""
-
-      # loop do
-      #   @message_bank.show_prompt
-      #   answer = gets.downcase.chomp
-
-      #   answer = "yes" if answer == "y"
-      #   answer = "no" if answer == "n"
-
-      #   # default to first answer
-      #   if answer == ""
-      #     answer = possible_answers[0].downcase
-      #     print answer.yellow
-      #   end
-
-      #   break if possible_answers.map { |a| a.downcase }.include? answer
-
-      #   print "\nPossible answers are ["
-      #   print_info.call
-      # end
-
       answer = possible_answers[0]
+
+      loop do
+        @message_bank.show_prompt
+        # answer = gets.downcase.chomp
+
+        answer = "yes" if answer == "y"
+        answer = "no" if answer == "n"
+
+        # default to first answer
+        if answer == ""
+          answer = possible_answers[0].downcase
+          print answer.yellow
+          print '666666666'
+        end
+
+        break if possible_answers.map { |a| a.downcase }.include? answer
+
+        print "\nPossible answers are ["
+        print_info.call
+      end
+
+      answer 
     end
 
     def run
