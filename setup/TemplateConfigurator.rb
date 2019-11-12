@@ -47,7 +47,7 @@ module Pod
 
       loop do
         @message_bank.show_prompt
-        answer = possible_answers[0]
+        answer = gets.downcase.chomp
 
         answer = "yes" if answer == "y"
         answer = "no" if answer == "n"
