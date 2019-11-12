@@ -12,9 +12,9 @@ module Pod
     end
 
     def perform
-      keep_demo = :Yes
+      keep_demo = "Yes"
 
-      framework = :None
+      framework = "None"
       case framework
         when :quick
           configurator.add_pod_to_podfile "Quick', '~> 1.2.0"
@@ -25,7 +25,7 @@ module Pod
           configurator.set_test_framework "xctest", "swift", "swift"
       end
 
-      snapshots = :Yes
+      snapshots = "Yes"
       case snapshots
         when :yes
           configurator.add_pod_to_podfile "FBSnapshotTestCase' , '~> 2.1.4"
