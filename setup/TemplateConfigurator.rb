@@ -70,7 +70,9 @@ module Pod
     def run
       @message_bank.welcome_message
 
-      platform = "iOS"
+      platform = self.ask_with_answers("What platform do you want to use?", ["iOS", "macOS"]).to_sym
+
+      print platform
 
       case platform
         when :macos
