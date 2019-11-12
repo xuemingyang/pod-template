@@ -45,26 +45,26 @@ module Pod
 
       answer = ""
 
-      loop do
-        @message_bank.show_prompt
-        answer = gets.downcase.chomp
+      # loop do
+      #   @message_bank.show_prompt
+      #   answer = gets.downcase.chomp
 
-        answer = "yes" if answer == "y"
-        answer = "no" if answer == "n"
+      #   answer = "yes" if answer == "y"
+      #   answer = "no" if answer == "n"
 
-        # default to first answer
-        if answer == ""
-          answer = possible_answers[0].downcase
-          print answer.yellow
-        end
+      #   # default to first answer
+      #   if answer == ""
+      #     answer = possible_answers[0].downcase
+      #     print answer.yellow
+      #   end
 
-        break if possible_answers.map { |a| a.downcase }.include? answer
+      #   break if possible_answers.map { |a| a.downcase }.include? answer
 
-        print "\nPossible answers are ["
-        print_info.call
-      end
+      #   print "\nPossible answers are ["
+      #   print_info.call
+      # end
 
-      answer
+      answer = possible_answers[0]
     end
 
     def run
